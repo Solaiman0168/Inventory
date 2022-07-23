@@ -28502,7 +28502,7 @@ var render = function () {
                   "div",
                   { staticClass: "text-center" },
                   [
-                    _c("router-link", { attrs: { to: "/" } }, [
+                    _c("router-link", { attrs: { to: "/forget" } }, [
                       _vm._v("Forget Password!"),
                     ]),
                   ],

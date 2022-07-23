@@ -33,7 +33,7 @@
                     <router-link to="/register">Create an Account!</router-link>
                   </div>
                   <div class="text-center">
-                    <router-link to="/">Forget Password!</router-link>
+                    <router-link to="/forget">Forget Password!</router-link>
                   </div>
                   <div class="text-center">
                   </div>

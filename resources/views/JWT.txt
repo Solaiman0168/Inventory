@@ -1,0 +1,5 @@
+
+ https://jwt-auth.readthedocs.io/en/develop/laravel-installation/
+"require": {
+  "tymon/jwt-auth": "dev-develop"
+}
