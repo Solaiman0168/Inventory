@@ -5332,9 +5332,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /***/ }),
 
@@ -28424,17 +28421,6 @@ var staticRenderFns = [
             id: "exampleInputEmail",
             "aria-describedby": "emailHelp",
             placeholder: "Enter Existing Email Address",
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "password",
-            id: "exampleInputPassword",
-            placeholder: "Password",
           },
         }),
       ]),

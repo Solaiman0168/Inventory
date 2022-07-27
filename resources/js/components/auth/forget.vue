@@ -15,9 +15,6 @@
             placeholder="Enter Existing Email Address">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
-        </div>
-        <div class="form-group">
             <a href="index.html" class="btn btn-primary btn-block">Forget password</a>
         </div>
     </form>
