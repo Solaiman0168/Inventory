@@ -5341,55 +5341,7 @@ __webpack_require__.r(__webpack_exports__);
   \*****************************************************************************************************************************************************************************************************************/
 /***/ (() => {
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: D:\\Xampp\\htdocs\\Inventory\\resources\\js\\components\\auth\\login.vue: Missing semicolon. (51:10)\n\n\u001b[0m \u001b[90m 49 |\u001b[39m \u001b[90m//\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 50 |\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 51 |\u001b[39m     data(){\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 52 |\u001b[39m         \u001b[0m\n\u001b[0m \u001b[90m 53 |\u001b[39m     }\u001b[0m\n\u001b[0m \u001b[90m 54 |\u001b[39m\u001b[0m\n    at instantiate (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\parser\\lib\\index.js:72:32)\n    at constructor (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\parser\\lib\\index.js:359:12)\n    at Parser.raise (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\parser\\lib\\index.js:3339:19)\n    at Parser.semicolon (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\parser\\lib\\index.js:4000:10)\n    at Parser.parseExpressionStatement (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\parser\\lib\\index.js:15244:10)\n    at Parser.parseStatementContent (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\parser\\lib\\index.js:14791:19)\n    at Parser.parseStatement (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\parser\\lib\\index.js:14643:17)\n    at Parser.parseBlockOrModuleBlockBody (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\parser\\lib\\index.js:15286:25)\n    at Parser.parseBlockBody (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\parser\\lib\\index.js:15277:10)\n    at Parser.parseProgram (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\parser\\lib\\index.js:14561:10)\n    at Parser.parseTopLevel (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\parser\\lib\\index.js:14548:25)\n    at Parser.parse (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\parser\\lib\\index.js:16556:10)\n    at parse (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\parser\\lib\\index.js:16608:38)\n    at parser (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\core\\lib\\parser\\index.js:52:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (D:\\Xampp\\htdocs\\Inventory\\node_modules\\@babel\\core\\lib\\transformation\\normalize-file.js:87:38)");
 
 /***/ }),
 
@@ -28469,7 +28421,80 @@ var render = function () {
               _c("div", { staticClass: "login-form" }, [
                 _vm._m(0),
                 _vm._v(" "),
-                _vm._m(1),
+                _c(
+                  "form",
+                  {
+                    staticClass: "user",
+                    on: {
+                      submit: function ($event) {
+                        $event.preventDefault()
+                        return _vm.login.apply(null, arguments)
+                      },
+                    },
+                  },
+                  [
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.email,
+                            expression: "form.email",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "email",
+                          id: "exampleInputEmail",
+                          "aria-describedby": "emailHelp",
+                          placeholder: "Enter Email Address",
+                        },
+                        domProps: { value: _vm.form.email },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "email", $event.target.value)
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.form.password,
+                            expression: "form.password",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "password",
+                          id: "exampleInputPassword",
+                          placeholder: "Password",
+                        },
+                        domProps: { value: _vm.form.password },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.form, "password", $event.target.value)
+                          },
+                        },
+                      }),
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _vm._m(2),
+                  ]
+                ),
                 _vm._v(" "),
                 _c("hr"),
                 _vm._v(" "),
@@ -28517,65 +28542,44 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("form", { staticClass: "user" }, [
-      _c("div", { staticClass: "form-group" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "email",
-            id: "exampleInputEmail",
-            "aria-describedby": "emailHelp",
-            placeholder: "Enter Email Address",
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "password",
-            id: "exampleInputPassword",
-            placeholder: "Password",
-          },
-        }),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c(
-          "div",
-          {
-            staticClass: "custom-control custom-checkbox small",
-            staticStyle: { "line-height": "1.5rem" },
-          },
-          [
-            _c("input", {
-              staticClass: "custom-control-input",
-              attrs: { type: "checkbox", id: "customCheck" },
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass: "custom-control-label",
-                attrs: { for: "customCheck" },
-              },
-              [_vm._v("Remember\n                      Me")]
-            ),
-          ]
-        ),
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-primary btn-block",
-            attrs: { href: "index.html" },
-          },
-          [_vm._v("Login")]
-        ),
-      ]),
+    return _c("div", { staticClass: "form-group" }, [
+      _c(
+        "div",
+        {
+          staticClass: "custom-control custom-checkbox small",
+          staticStyle: { "line-height": "1.5rem" },
+        },
+        [
+          _c("input", {
+            staticClass: "custom-control-input",
+            attrs: { type: "checkbox", id: "customCheck" },
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass: "custom-control-label",
+              attrs: { for: "customCheck" },
+            },
+            [_vm._v("Remember\n                Me")]
+          ),
+        ]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-primary btn-block",
+          attrs: { href: "index.html" },
+        },
+        [_vm._v("Login")]
+      ),
     ])
   },
 ]
