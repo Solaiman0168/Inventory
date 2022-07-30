@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <a href="index.html" class="btn btn-primary btn-block">Login</a>
+              <button type="submit" class="btn btn-primary btn-block">Login</button>
             </div>
         </form>
                   <hr>
@@ -48,19 +48,22 @@
 
 
 <script>
+  export default{
     data(){
-        return{
-            form:{
-                email: null,
-                password: null
-            }
+      return{
+          form:{
+              email: null,
+              password: null
+          }
         }
-    },
-    methods:{
-        login(){
-            alert('done');
-        }
-    }
+      },
+      methods:{
+          login(){
+              
+          }
+      }
+  }
+    
 </script>
 
 
