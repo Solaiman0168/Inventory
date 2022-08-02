@@ -9,6 +9,10 @@ Vue.use(VueRouter)
 //Router imported
 import {routes} from './routes';
 
+// Import user class
+import User from './Helpers/User';
+window.User = User;
+
 // window.Vue = require('vue').default;
 
 
