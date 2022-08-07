@@ -36,7 +36,7 @@
                         <td>{{ employee.joining_date }}</td>
                         <td>
                             <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                            <a href="#" @click="deleteEmployee(employee.id)" class="btn btn-sm btn-danger">Delete</a>
                         </td>
                       </tr>
                     </tbody>
@@ -80,7 +80,12 @@ import axios from 'axios'
             axios.get('api/employee/')
             .then(({data}) => (this.employees = data))
             .catch()
-           }
+           },
+            deleteEmployee(id){
+                // console.log(id)
+            }
+
+
         },
         created(){
             this.allEmployee();

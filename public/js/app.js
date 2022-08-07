@@ -5574,6 +5574,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         var data = _ref.data;
         return _this2.employees = data;
       })["catch"]();
+    },
+    deleteEmployee: function deleteEmployee(id) {// console.log(id)
     }
   }
 }, "created", function created() {
@@ -6486,7 +6488,22 @@ var render = function render() {
         src: employee.photo,
         id: "employee_photo"
       }
-    })]), _vm._v(" "), _c("td", [_vm._v(_vm._s(employee.phone))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(employee.sallery))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(employee.joining_date))]), _vm._v(" "), _vm._m(2, true)]);
+    })]), _vm._v(" "), _c("td", [_vm._v(_vm._s(employee.phone))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(employee.sallery))]), _vm._v(" "), _c("td", [_vm._v(_vm._s(employee.joining_date))]), _vm._v(" "), _c("td", [_c("a", {
+      staticClass: "btn btn-sm btn-primary",
+      attrs: {
+        href: "#"
+      }
+    }, [_vm._v("Edit")]), _vm._v(" "), _c("a", {
+      staticClass: "btn btn-sm btn-danger",
+      attrs: {
+        href: "#"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.deleteEmployee(employee.id);
+        }
+      }
+    }, [_vm._v("Delete")])])]);
   }), 0)])]), _vm._v(" "), _c("div", {
     staticClass: "card-footer"
   })])])])]);
@@ -6508,21 +6525,6 @@ var staticRenderFns = [function () {
   return _c("thead", {
     staticClass: "thead-light"
   }, [_c("tr", [_c("th", [_vm._v("Name")]), _vm._v(" "), _c("th", [_vm._v("Photo")]), _vm._v(" "), _c("th", [_vm._v("Phone")]), _vm._v(" "), _c("th", [_vm._v("Sallery")]), _vm._v(" "), _c("th", [_vm._v("Joining_date")]), _vm._v(" "), _c("th", [_vm._v("Action")])])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("td", [_c("a", {
-    staticClass: "btn btn-sm btn-primary",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Edit")]), _vm._v(" "), _c("a", {
-    staticClass: "btn btn-sm btn-danger",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Delete")])]);
 }];
 render._withStripped = true;
 
