@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="row">
-            <router-link to="" class="btn btn-primary" style="width: 140px;">All Employee</router-link>
+            <router-link to="/employee" class="btn btn-primary" style="width: 140px;">All Employee</router-link>
         </div>
         <div class="row justify-content-center">
             <div class="col-xl-12 col-lg-12 col-md-12">
@@ -47,7 +47,7 @@
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Joining Date"
+                                <input type="date" class="form-control" id="exampleInputFirstName" placeholder="Enter Your Joining Date"
                                 v-model="form.joining_date">
                                 <small class="text-danger" v-if="errors.joining_date">{{ errors.joining_date[0] }}</small>
                             </div>
@@ -73,13 +73,13 @@
                         <div class="form-row">
                             <div class="col-md-6">
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <input type="file" class="custom-file-input" id="customFile" @change="onFileSelected">
                                     <small class="text-danger" v-if="errors.photo">{{ errors.photo[0] }}</small>
                                     <label class="custom-file-label" for="customFile">Choose file</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <img src="form.photo" alt="" style="height: 40px; width: 48px;">
+                                <img :src="form.photo" alt="" style="height: 40px; width: 48px;">
                             </div>
                         </div>
                     </div>
@@ -103,6 +103,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 
   export default{
       created(){
@@ -127,9 +129,31 @@
           }
         },
         methods:{
+            onFileSelected(event){
+                console.log(event)
+                let file = event.target.files[0];
+                if(file.size > 1048770){
+                    Notification.image_validation()
+                }else{
+                    // alert('File is less than 1MB')
+                    // console.log(event)
+                    let reader = new FileReader();
+                    reader.onload = event => {
+                        this.form.photo = event.target.result
+                        console.log(event.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                }
+            },
             employeeInsert(){
-                alert('ok')
-            }
+                // alert('ok')
+                axios.post('/api/employee', this.form)
+                .then(() => {
+                    this.$router.push({ name: 'employee'})
+                    Notification.success()
+                })
+                .catch(error => this.errors = error.response.data.errors)
+            },
         }
     }
 </script>
