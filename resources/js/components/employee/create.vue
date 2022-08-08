@@ -116,21 +116,21 @@ import axios from 'axios';
       data(){
         return{
             form:{
-                name: null,
-                email: null,
-                phone: null,
-                sallery: null,
-                address: null,
-                photo: null,
-                nid: null,
-                joining_date: null
+                name: '',
+                email: '',
+                phone: '',
+                sallery: '',
+                address: '',
+                photo: '',
+                nid: '',
+                joining_date: ''
             },
             errors:{}
           }
         },
         methods:{
             onFileSelected(event){
-                console.log(event)
+                // console.log(event)
                 let file = event.target.files[0];
                 if(file.size > 1048770){
                     Notification.image_validation()
