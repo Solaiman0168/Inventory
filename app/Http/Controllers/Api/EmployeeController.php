@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Employee;
 use Illuminate\Support\Str;
 use Image;
+use DB;
 
 class EmployeeController extends Controller
 {
@@ -109,6 +110,14 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = DB::table('employees')->where('id', $id)->first();
+        // dd($employee);
+        $photo = $employee->photo;
+        if($photo){
+            unlink($photo);
+            DB::table('employees')->where('id', $id)->delete();
+        }else{
+            DB::table('employees')->where('id', $id)->delete();
+        }
     }
 }
