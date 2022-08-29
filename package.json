@@ -26,7 +26,7 @@
     "dependencies": {
         "jquery": "^3.6.0",
         "noty": "^3.2.0-beta-deprecated",
-        "sweetalert2": "^11.4.24",
+        "sweetalert2": "^11.4.29",
         "vue-router": "^3.5.4"
     }
 }

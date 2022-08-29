@@ -1,12 +1,12 @@
- 
+
 
 <template>
-  
+
   <div>
 
  <div class="row">
   <router-link to="/store-supplier" class="btn btn-primary">Add Supplier </router-link>
-   
+
  </div>
 <br>
    <input type="text" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="Search Here">
@@ -46,7 +46,7 @@
  <a @click="deleteSupplier(supplier.id)" class="btn btn-sm btn-danger"><font color="#ffffff">Delete</font></a>
             </td>
                       </tr>
-                    
+
                     </tbody>
                   </table>
                 </div>
@@ -57,7 +57,7 @@
           <!--Row-->
 
 
-   
+
   </div>
 
 
@@ -66,7 +66,7 @@
 
 
 <script type="text/javascript">
-  
+
   export default {
     created(){
       if (!User.loggedIn()) {
@@ -83,10 +83,10 @@
       filtersearch(){
       return this.suppliers.filter(supplier => {
          return supplier.name.match(this.searchTerm)
-      }) 
+      })
       }
     },
- 
+
   methods:{
     allSupplier(){
       axios.get('/api/supplier/')
@@ -121,15 +121,15 @@
               }
             })
 
-  } 
+  }
 
   },
   created(){
     this.allSupplier();
-  } 
-  
+  }
 
-  } 
+
+  }
 </script>
 
 
