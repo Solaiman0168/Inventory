@@ -47,6 +47,7 @@ class ProductController extends Controller
 
         ]);
 
+
  if ($request->image) {
          $position = strpos($request->image, ';');
          $sub = substr($request->image, 0, $position);
@@ -70,6 +71,9 @@ class ProductController extends Controller
          $product->product_quantity = $request->product_quantity;
          $product->image = $image_url;
          $product->save();
+         
+        //  dd($product);
+
      }else{
         $product = new Product;
          $product->category_id = $request->category_id;

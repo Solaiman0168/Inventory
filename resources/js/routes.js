@@ -48,4 +48,10 @@ export const routes = [
      { path: '/category', component: category, name:'category'},
      { path: '/edit-category/:id', component: editcategory, name:'edit-category'},
 
+
+    // Product Routes
+    { path: '/store-product', component: storeproduct, name:'store-product'},
+    { path: '/product', component: product, name:'product'},
+    { path: '/edit-product/:id', component: editproduct, name:'edit-product'},
+
   ]
