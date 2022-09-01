@@ -121,10 +121,36 @@
                   </li>
 
 
+
+                  <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap5"
+                      aria-expanded="true" aria-controls="collapseBootstrap5">
+                      <i class="far fa-fw fa-window-maximize"></i>
+                      <span>Salary</span>
+                    </a>
+                    <div id="collapseBootstrap5" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+                      <div class="bg-white py-2 collapse-inner rounded">
+                       
+               <router-link class="collapse-item" to="/given-salary">Add Salary</router-link>
+               <router-link class="collapse-item" to="/salary">All Salary</router-link>
+                        
+                      </div>
+                    </div>
+                  </li>
+
+
+                  <li class="nav-item">
+                    <router-link class="nav-link" to="/stock">
+                      <i class="fab fa-fw fa-wpforms"></i>
+                      <span>Stock</span>
+                    </router-link>
+                  </li>
+
+
                   
 
 
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                   <a class="nav-link" href="forms.html">
                     <i class="fab fa-fw fa-wpforms"></i>
                     <span>Forms</span>
@@ -176,8 +202,8 @@
                     <span>Charts</span>
                   </a>
                 </li>
-                <hr class="sidebar-divider">
-                <div class="version" id="version-ruangadmin"></div>
+                <hr class="sidebar-divider"> --}}
+                {{-- <div class="version" id="version-ruangadmin"></div> --}}
               </ul>
               <!-- Sidebar -->
             </nav>
