@@ -40,11 +40,7 @@
                         <td>{{ employee.phone }}</td>
                         <td>{{ employee.sallery }}</td>
                         <td>{{ employee.joining_date }}</td>
-            <td>
-   <router-link :to="{name: 'pay-salary', params:{id:employee.id}}" class="btn btn-sm btn-primary">Pay Salary</router-link>
-
-  
-            </td>
+                        <td><router-link :to="{name: 'pay-salary', params:{id:employee.id}}" class="btn btn-sm btn-primary">Pay Salary</router-link></td>
                       </tr>
                     
                     </tbody>

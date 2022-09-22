@@ -41,6 +41,7 @@ Route::apiResource('/supplier', 'App\Http\Controllers\Api\SupplierController');
 Route::apiResource('/category', 'App\Http\Controllers\Api\CategoryController');
 Route::apiResource('/product', 'App\Http\Controllers\Api\ProductController');
 Route::apiResource('/expense', 'App\Http\Controllers\Api\ExpenseController');
+Route::apiResource('/customer', 'App\Http\Controllers\Api\CustomerController');
 
 Route::post('/salary/paid/{id}', 'App\Http\Controllers\Api\SalaryController@paid');
 Route::get('/salary', 'App\Http\Controllers\Api\SalaryController@AllSalary');
@@ -49,5 +50,11 @@ Route::get('/edit/salary/{id}', 'App\Http\Controllers\Api\SalaryController@EditS
 Route::post('/salary/update/{id}', 'App\Http\Controllers\Api\SalaryController@SalaryUpdate');
 
 Route::post('/stock/update/{id}', 'App\Http\Controllers\Api\ProductController@StockUpdate');
+
+Route::Get('/getting/product/{id}', 'App\Http\Controllers\Api\PosController@GetProduct');
+
+// Add to cart Route
+Route::Get('/addToCart/{id}', 'App\Http\Controllers\Api\CartController@AddToCart');
+Route::Get('/cart/product', 'App\Http\Controllers\Api\CartController@CartProduct');
 
 

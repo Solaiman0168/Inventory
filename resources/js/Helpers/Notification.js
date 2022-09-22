@@ -44,6 +44,26 @@ class Notification{
         }).show();
     }
 
+
+    cart_success(){
+        new Noty({
+        type: 'success',
+        layout: 'topRight',
+        text: 'Successfully Add to Cart!',
+        timeout: 1000,
+           }).show();
+      } 
+    
+    
+    cart_delete(){
+        new Noty({
+        type: 'success',
+        layout: 'topRight',
+        text: 'Successfully Deleted!',
+        timeout: 1000,
+           }).show();
+      } 
+
 }
 
 export default Notification = new Notification()
