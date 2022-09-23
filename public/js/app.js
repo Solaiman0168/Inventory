@@ -6380,13 +6380,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }
 }, _defineProperty(_created$created$data, "created", function created() {
+  var _this = this;
+
   this.allProduct();
   this.allCategory();
-  this.allCustomer(); // this.cartProduct();
-  // this.vat();
-  // Reload.$on('AfterAdd',() =>{
-  //   this.cartProduct();
-  // })
+  this.allCustomer();
+  this.cartProduct();
+  this.vat();
+  Reload.$on('AfterAdd', function () {
+    _this.cartProduct();
+  });
 }), _defineProperty(_created$created$data, "data", function data() {
   return {
     customer_id: '',
@@ -6405,17 +6408,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   };
 }), _defineProperty(_created$created$data, "computed", {
   filtersearch: function filtersearch() {
-    var _this = this;
+    var _this2 = this;
 
     return this.products.filter(function (product) {
-      return product.product_name.match(_this.searchTerm);
+      return product.product_name.match(_this2.searchTerm);
     });
   },
   getfiltersearch: function getfiltersearch() {
-    var _this2 = this;
+    var _this3 = this;
 
     return this.getproducts.filter(function (getproduct) {
-      return getproduct.product_name.match(_this2.getsearchTerm);
+      return getproduct.product_name.match(_this3.getsearchTerm);
     });
   },
   qty: function qty() {
@@ -6437,47 +6440,47 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     return sum;
   }
 }), _defineProperty(_created$created$data, "methods", {
-  // Cart Methods Here
+  // Cart Methods Here 
   AddToCart: function AddToCart(id) {
     axios.get('/api/addToCart/' + id).then(function () {
       Reload.$emit('AfterAdd');
       Notification.cart_success();
     })["catch"]();
   },
-  // cartProduct(){
-  //     axios.get('/api/cart/product/')
-  //     .then(({data}) => (this.carts = data))
-  //     .catch()
-  // },
-  // removeItem(id){
-  //  axios.get('/api/remove/cart/'+id)
-  //     .then(() => {
-  //       Reload.$emit('AfterAdd');
-  //       Notification.cart_delete()
-  //     })
-  //     .catch()
-  // },
-  // increment(id){
-  // axios.get('/api/increment/'+id)
-  //     .then(() => {
-  //       Reload.$emit('AfterAdd');
-  //       Notification.success()
-  //     })
-  //     .catch()
-  // },
-  //  decrement(id){
-  //   axios.get('/api/decrement/'+id)
-  //     .then(() => {
-  //       Reload.$emit('AfterAdd');
-  //       Notification.success()
-  //     })
-  //     .catch() 
-  // }, 
-  // vat(){
-  //      axios.get('/api/vats/')
-  //     .then(({data}) => (this.vats = data))
-  //     .catch()
-  // },
+  cartProduct: function cartProduct() {
+    var _this4 = this;
+
+    axios.get('/api/cart/product/').then(function (_ref) {
+      var data = _ref.data;
+      return _this4.carts = data;
+    })["catch"]();
+  },
+  removeItem: function removeItem(id) {
+    axios.get('/api/remove/cart/' + id).then(function () {
+      Reload.$emit('AfterAdd');
+      Notification.cart_delete();
+    })["catch"]();
+  },
+  increment: function increment(id) {
+    axios.get('/api/increment/' + id).then(function () {
+      Reload.$emit('AfterAdd');
+      Notification.success();
+    })["catch"]();
+  },
+  decrement: function decrement(id) {
+    axios.get('/api/decrement/' + id).then(function () {
+      Reload.$emit('AfterAdd');
+      Notification.success();
+    })["catch"]();
+  },
+  vat: function vat() {
+    var _this5 = this;
+
+    axios.get('/api/vats/').then(function (_ref2) {
+      var data = _ref2.data;
+      return _this5.vats = data;
+    })["catch"]();
+  },
   // orderdone(){
   //   let total = this.subtotal*this.vats.vat /100 + this.subtotal;
   //   var data = {qty:this.qty, subtotal:this.subtotal, customer_id:this.customer_id, payby:this.payby, pay:this.pay, due:this.due, vat:this.vats.vat, total:total }
@@ -6489,35 +6492,35 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   // },
   // End Cart Methods 
   allProduct: function allProduct() {
-    var _this3 = this;
+    var _this6 = this;
 
-    axios.get('/api/product/').then(function (_ref) {
-      var data = _ref.data;
-      return _this3.products = data;
+    axios.get('/api/product/').then(function (_ref3) {
+      var data = _ref3.data;
+      return _this6.products = data;
     })["catch"]();
   },
   allCategory: function allCategory() {
-    var _this4 = this;
+    var _this7 = this;
 
-    axios.get('/api/category/').then(function (_ref2) {
-      var data = _ref2.data;
-      return _this4.categories = data;
+    axios.get('/api/category/').then(function (_ref4) {
+      var data = _ref4.data;
+      return _this7.categories = data;
     })["catch"]();
   },
   allCustomer: function allCustomer() {
-    var _this5 = this;
+    var _this8 = this;
 
-    axios.get('/api/customer/').then(function (_ref3) {
-      var data = _ref3.data;
-      return _this5.customers = data;
+    axios.get('/api/customer/').then(function (_ref5) {
+      var data = _ref5.data;
+      return _this8.customers = data;
     })["catch"](console.log('error'));
   },
   subproduct: function subproduct(id) {
-    var _this6 = this;
+    var _this9 = this;
 
-    axios.get('/api/getting/product/' + id).then(function (_ref4) {
-      var data = _ref4.data;
-      return _this6.getproducts = data;
+    axios.get('/api/getting/product/' + id).then(function (_ref6) {
+      var data = _ref6.data;
+      return _this9.getproducts = data;
     })["catch"]();
   }
 }), _created$created$data);
@@ -10621,7 +10624,12 @@ var render = function render() {
   }, [_vm._m(1), _vm._v(" "), _c("tbody", _vm._l(_vm.carts, function (cart) {
     return _c("tr", {
       key: cart.id
-    }, [_c("td", [_vm._v(_vm._s(cart.pro_name))]), _vm._v(" "), _c("td", [_c("input", {
+    }, [_c("td", [_vm._v(_vm._s(cart.pro_name))]), _vm._v(" "), _c("td", {
+      staticStyle: {
+        display: "flex",
+        "align-items": "center"
+      }
+    }, [_c("input", {
       staticStyle: {
         width: "15px"
       },
@@ -14045,6 +14053,7 @@ var Toast = sweetalert2__WEBPACK_IMPORTED_MODULE_6___default().mixin({
 window.Toast = Toast; // Sweet alert end
 // window.Vue = require('vue').default;
 
+window.Reload = new vue__WEBPACK_IMPORTED_MODULE_1__["default"]();
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__["default"]({
   routes: _routes__WEBPACK_IMPORTED_MODULE_3__.routes,
   // short for `routes: routes`

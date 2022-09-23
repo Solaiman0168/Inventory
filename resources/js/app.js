@@ -43,6 +43,7 @@ const Toast = Swal.mixin({
 // Sweet alert end
 
 // window.Vue = require('vue').default;
+window.Reload = new Vue();
 
 
 const router = new VueRouter({

@@ -41,16 +41,15 @@
                     <tbody>
 
           <tr v-for="cart in carts" :key="cart.id">
-            <td>{{ cart.pro_name }}</td>
-            <td><input type="text" readonly="" style="width: 15px;" :value="cart.pro_quantity">
-       <button @click.prevent="increment(cart.id)" class="btn btn-sm btn-success">+</button>
-   <button  @click.prevent="decrement(cart.id)" class="btn btn-sm btn-danger" v-if="cart.pro_quantity >= 2">-</button>
-   <button class="btn btn-sm btn-danger" v-else="" disabled="">-</button>
-
-            </td>
-            <td>{{ cart.product_price  }}</td>
-            <td>{{ cart.sub_total }}</td>
-   <td><a @click="removeItem(cart.id)" class="btn btn-sm btn-primary"><font color="#ffffff">X</font></a></td>
+              <td>{{ cart.pro_name }}</td> 
+              <td style="display: flex; align-items: center;"><input type="text" readonly="" style="width: 15px;" :value="cart.pro_quantity">
+                <button @click.prevent="increment(cart.id)" class="btn btn-sm btn-success">+</button>
+                <button @click.prevent="decrement(cart.id)" class="btn btn-sm btn-danger" v-if="cart.pro_quantity >= 2">-</button>
+                <button class="btn btn-sm btn-danger" v-else="" disabled="">-</button>
+              </td>
+              <td>{{ cart.product_price  }}</td>
+              <td>{{ cart.sub_total }}</td>
+              <td><a @click="removeItem(cart.id)" class="btn btn-sm btn-primary"><font color="#ffffff">X</font></a></td>
           </tr>
                       
                        
@@ -235,11 +234,11 @@
     this.allProduct();
     this.allCategory();
     this.allCustomer();
-    // this.cartProduct();
-    // this.vat();
-    // Reload.$on('AfterAdd',() =>{
-    //   this.cartProduct();
-    // })
+    this.cartProduct();
+    this.vat();
+    Reload.$on('AfterAdd',() =>{
+      this.cartProduct();
+    })
 
    }, 
  data(){
@@ -291,7 +290,7 @@
     },
  
   methods:{
-    // Cart Methods Here
+    // Cart Methods Here 
   AddToCart(id){
    axios.get('/api/addToCart/'+id)
       .then(() => {
@@ -300,40 +299,40 @@
       })
       .catch()
   },
-  // cartProduct(){
-  //     axios.get('/api/cart/product/')
-  //     .then(({data}) => (this.carts = data))
-  //     .catch()
-  // },
-  // removeItem(id){
-  //  axios.get('/api/remove/cart/'+id)
-  //     .then(() => {
-  //       Reload.$emit('AfterAdd');
-  //       Notification.cart_delete()
-  //     })
-  //     .catch()
-  // },
-  // increment(id){
-  // axios.get('/api/increment/'+id)
-  //     .then(() => {
-  //       Reload.$emit('AfterAdd');
-  //       Notification.success()
-  //     })
-  //     .catch()
-  // },
-  //  decrement(id){
-  //   axios.get('/api/decrement/'+id)
-  //     .then(() => {
-  //       Reload.$emit('AfterAdd');
-  //       Notification.success()
-  //     })
-  //     .catch() 
-  // }, 
-  // vat(){
-  //      axios.get('/api/vats/')
-  //     .then(({data}) => (this.vats = data))
-  //     .catch()
-  // },
+  cartProduct(){
+      axios.get('/api/cart/product/')
+      .then(({data}) => (this.carts = data))
+      .catch()
+  },
+  removeItem(id){
+   axios.get('/api/remove/cart/'+id)
+      .then(() => {
+        Reload.$emit('AfterAdd');
+        Notification.cart_delete()
+      })
+      .catch()
+  },
+  increment(id){
+  axios.get('/api/increment/'+id)
+      .then(() => {
+        Reload.$emit('AfterAdd');
+        Notification.success()
+      })
+      .catch()
+  },
+   decrement(id){
+    axios.get('/api/decrement/'+id)
+      .then(() => {
+        Reload.$emit('AfterAdd');
+        Notification.success()
+      })
+      .catch() 
+  }, 
+  vat(){
+       axios.get('/api/vats/')
+      .then(({data}) => (this.vats = data))
+      .catch()
+  },
   // orderdone(){
   //   let total = this.subtotal*this.vats.vat /100 + this.subtotal;
   //   var data = {qty:this.qty, subtotal:this.subtotal, customer_id:this.customer_id, payby:this.payby, pay:this.pay, due:this.due, vat:this.vats.vat, total:total }
