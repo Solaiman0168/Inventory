@@ -333,17 +333,17 @@
       .then(({data}) => (this.vats = data))
       .catch()
   },
-  // orderdone(){
-  //   let total = this.subtotal*this.vats.vat /100 + this.subtotal;
-  //   var data = {qty:this.qty, subtotal:this.subtotal, customer_id:this.customer_id, payby:this.payby, pay:this.pay, due:this.due, vat:this.vats.vat, total:total }
+  orderdone(){
+    let total = this.subtotal*this.vats.vat /100 + this.subtotal;
+    var data = {qty:this.qty, subtotal:this.subtotal, customer_id:this.customer_id, payby:this.payby, pay:this.pay, due:this.due, vat:this.vats.vat, total:total }
+    console.log(data)
+    axios.post('/api/orderdone',data)
+       .then(() => {
+          Notification.success()
+         this.$router.push({name: 'home'})
+       }) 
 
-  //   axios.post('/api/orderdone',data)
-  //      .then(() => {
-  //         Notification.success()
-  //        this.$router.push({name: 'home'})
-  //      }) 
-
-  // },
+  },
    
     // End Cart Methods 
 

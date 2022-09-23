@@ -6481,46 +6481,60 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return _this5.vats = data;
     })["catch"]();
   },
-  // orderdone(){
-  //   let total = this.subtotal*this.vats.vat /100 + this.subtotal;
-  //   var data = {qty:this.qty, subtotal:this.subtotal, customer_id:this.customer_id, payby:this.payby, pay:this.pay, due:this.due, vat:this.vats.vat, total:total }
-  //   axios.post('/api/orderdone',data)
-  //      .then(() => {
-  //         Notification.success()
-  //        this.$router.push({name: 'home'})
-  //      }) 
-  // },
+  orderdone: function orderdone() {
+    var _this6 = this;
+
+    var total = this.subtotal * this.vats.vat / 100 + this.subtotal;
+    var data = {
+      qty: this.qty,
+      subtotal: this.subtotal,
+      customer_id: this.customer_id,
+      payby: this.payby,
+      pay: this.pay,
+      due: this.due,
+      vat: this.vats.vat,
+      total: total
+    };
+    console.log(data);
+    axios.post('/api/orderdone', data).then(function () {
+      Notification.success();
+
+      _this6.$router.push({
+        name: 'home'
+      });
+    });
+  },
   // End Cart Methods 
   allProduct: function allProduct() {
-    var _this6 = this;
+    var _this7 = this;
 
     axios.get('/api/product/').then(function (_ref3) {
       var data = _ref3.data;
-      return _this6.products = data;
+      return _this7.products = data;
     })["catch"]();
   },
   allCategory: function allCategory() {
-    var _this7 = this;
+    var _this8 = this;
 
     axios.get('/api/category/').then(function (_ref4) {
       var data = _ref4.data;
-      return _this7.categories = data;
+      return _this8.categories = data;
     })["catch"]();
   },
   allCustomer: function allCustomer() {
-    var _this8 = this;
+    var _this9 = this;
 
     axios.get('/api/customer/').then(function (_ref5) {
       var data = _ref5.data;
-      return _this8.customers = data;
+      return _this9.customers = data;
     })["catch"](console.log('error'));
   },
   subproduct: function subproduct(id) {
-    var _this9 = this;
+    var _this10 = this;
 
     axios.get('/api/getting/product/' + id).then(function (_ref6) {
       var data = _ref6.data;
-      return _this9.getproducts = data;
+      return _this10.getproducts = data;
     })["catch"]();
   }
 }), _created$created$data);
