@@ -337,6 +337,7 @@
     let total = this.subtotal*this.vats.vat /100 + this.subtotal;
     var data = {qty:this.qty, subtotal:this.subtotal, customer_id:this.customer_id, payby:this.payby, pay:this.pay, due:this.due, vat:this.vats.vat, total:total }
     console.log(data)
+    // return false
     axios.post('/api/orderdone',data)
        .then(() => {
           Notification.success()

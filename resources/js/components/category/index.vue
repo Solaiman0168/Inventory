@@ -83,7 +83,9 @@
   methods:{
     allCategory(){
       axios.get('/api/category/')
-      .then(({data}) => (this.categories = data))
+      .then(({data}) => {
+        this.categories = data
+      })
       .catch()
     },
   deleteCategory(id){

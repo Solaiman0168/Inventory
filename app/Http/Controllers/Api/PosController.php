@@ -62,7 +62,7 @@ class PosController extends Controller
    }
  
 
-  public function SearchOrderDate(Request $request){
+  public function SearchOrderDate(Request $request){ 
     $orderdate = $request->date;
     $newdate = new DateTime($orderdate);
     $done = $newdate->format('d/m/Y'); 

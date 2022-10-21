@@ -80,8 +80,6 @@
     return {
       form:{
         category_name: '',
-
-
       },
       errors:{}
     }
